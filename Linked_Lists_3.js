@@ -1,7 +1,7 @@
 // Deletes middle node with access only to that node
 
 function deleteMidNode(node) {
-		var n = this.findMidNode(node, this._root);
+		var n = this.findMidNode(node);
 		if(n == null || n.pointer == null){
 			return false;
 		} 
