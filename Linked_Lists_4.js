@@ -18,3 +18,40 @@ function partition(node, p) {
 	tail.pointer = null;
 	return head;
 }
+
+function partition1(p) {
+	var node = this._root;
+	var beforeStart = null;
+	var beforeEnd = null;
+	var afterStart = null;
+	var afterEnd = null;
+
+	while(node != null){
+		var next = node.pointer;
+		node.pointer = null;
+		if(node.value < p){
+			if(beforeStart == null){
+				beforeStart = node;
+				beforeEnd = beforeStart;
+			} else {
+				beforeEnd.pointer = node;
+				beforeEnd = node;
+			}
+		} else {
+			if(afterStart == null){
+				afterStart = node;
+				afterEnd = afterStart;
+			} else {
+				afterEnd.pointer = node;
+				afterEnd = node;
+			}
+		}
+		node = next;
+	}
+	if(beforeStart == null){
+		return afterStart;
+	}
+
+	beforeEnd.pointer = afterStart;
+	return beforeStart;
+}
