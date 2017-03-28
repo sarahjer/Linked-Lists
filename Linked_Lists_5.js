@@ -10,12 +10,6 @@ function sumLists(l1, l2){
 		 if(sum >= 10 ){
 		 	sum = sum % 10;
 		 }  
-		 // if(current1.pointer == null || current2.pointer == null){
-		 // 	ll3.add(sum);
-		 // 	ll3.add(carry);
-		 // } else {
-		 // 	ll3.add(sum);
-		 // }
 		 ll3.add(sum);
 		 current1 = current1.pointer;
 		 current2 = current2.pointer;	 		 
