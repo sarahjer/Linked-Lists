@@ -24,3 +24,45 @@ function(l1){
 	}
 
 } 				
+
+reverse: function(node) {
+	var next1 = null;
+	while (true) {
+		var next;
+		if(next1 != null){
+			next = next1;
+		} else{
+			next = node.pointer;
+			node.pointer = null;
+		}
+		next1 = next.pointer;
+		next.pointer = node;
+		node = next;
+
+		if (next1 === null) {
+			this._root = node;
+			break;
+		}
+	}
+}
+
+add: function(value) {
+	var node = {
+		value : value,
+		pointer : null
+	},
+	current;
+	if(this._root === null) {
+		this._root = node;
+	} else {
+		current = this._root;
+		while (true){
+			if (current.pointer === null) {
+				current.pointer = node;
+				break;
+			} else {
+				current = current.pointer;
+			}
+		}
+	}
+}
